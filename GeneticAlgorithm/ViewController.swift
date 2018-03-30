@@ -32,7 +32,7 @@ class ViewController: NSViewController {
     }
 
     @IBAction func start(_ sender: Any) {
-        genetic.n = populationSizeField.intValue == 0 ? 10 : Int(populationSizeField.intValue)
+        genetic.n = populationSizeField.intValue == 0 ? 100 : Int(populationSizeField.intValue)
         genetic.mutationFactor = mutationFactorField.intValue == 0 ? 100 : UInt32(mutationFactorField.intValue)
         genetic.goalWord = goalPhraseField.stringValue
         

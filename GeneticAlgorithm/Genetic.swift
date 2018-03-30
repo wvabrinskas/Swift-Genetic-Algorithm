@@ -18,10 +18,10 @@ class Genetic {
     
     var n = 10
     var mutationFactor:UInt32 = 100
-    var matingPool = [(String,Int)]()
-    var rankingPool = [(String, Int)]()
+    var matingPool = [(String, Double)]()
+    var rankingPool = [(String, Double)]()
     var generations = 0
-    var highestRanking = 0
+    var highestRanking = 0.0
     
     var highestLabel: String!
     var generationsLabel: String!
@@ -95,28 +95,29 @@ class Genetic {
         highestRanking = 0
     }
     
-    private func getRank(of word: String) -> Int {
-        var rank = 0
-        for letter in word {
-            if goalWord.contains(letter) {
-                rank += 1
-            }
-        }
+    private func getRank(of word: String) -> Double {
+        var rank = 0.0
         
-        for i in 0...goalWord.count - 1 {
+        for i in 0..<goalWord.count {
             if Array(goalWord)[i] == Array(word)[i] {
-                rank += 1
+                rank += 1.0
             }
         }
         
-        let adjustedRank = Int(Float(rank) / Float(goalWord.count * 2) * 100.0)
+        if rank == 0.0 {
+            return 0.0
+        }
         
-        if highestRanking < adjustedRank {
-            highestRanking = adjustedRank
+        rank = rank / Double(goalWord.count)
+        rank = pow(rank, 2)
+        
+        if highestRanking < rank {
+            highestRanking = rank
             self.highestLabel = "\(highestRanking)"
             print("Highest ranking word: '\(word)' with rank: \(highestRanking)")
         }
-        return adjustedRank
+
+        return rank
     }
     
     private func replaceCharacter(string: String, index: Int) -> String {
@@ -173,19 +174,15 @@ class Genetic {
     }
     
     
-    private func getRandomElement() -> (String, Int) {
-        let total = UInt32(rankingPool.map { $0.1 }.reduce(0,+))
-        let rand = Int(arc4random_uniform(total))
-        
-        var sum = 0
-        
-        for rankedItem in rankingPool {
-            sum += rankedItem.1
-            if rand < sum {
-                return rankedItem
+    private func getRandomElement() -> (String, Double) {
+        while true {
+            let index = Int(arc4random_uniform(UInt32(rankingPool.count)))
+            let element = rankingPool[index]
+            let randomFitness:Double = Double(arc4random_uniform(UInt32(highestRanking * 100))) / 100.0
+            if randomFitness <= element.1 {
+                return element
             }
         }
-        return ("",0)
     }
     
     private func buildMatingPool() {
