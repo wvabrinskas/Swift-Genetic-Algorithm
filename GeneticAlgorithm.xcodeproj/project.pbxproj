@@ -11,6 +11,7 @@
 		9140801F206D86010057A7DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140801E206D86010057A7DF /* ViewController.swift */; };
 		91408021206D86010057A7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91408020206D86010057A7DF /* Assets.xcassets */; };
 		91408024206D86010057A7DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91408022206D86010057A7DF /* Main.storyboard */; };
+		9140802D206D860E0057A7DF /* Genetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140802C206D860E0057A7DF /* Genetic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		91408023206D86010057A7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91408025206D86010057A7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91408026206D86010057A7DF /* GeneticAlgorithm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeneticAlgorithm.entitlements; sourceTree = "<group>"; };
+		9140802C206D860E0057A7DF /* Genetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genetic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				9140801C206D86010057A7DF /* AppDelegate.swift */,
 				9140801E206D86010057A7DF /* ViewController.swift */,
+				9140802C206D860E0057A7DF /* Genetic.swift */,
 				91408020206D86010057A7DF /* Assets.xcassets */,
 				91408022206D86010057A7DF /* Main.storyboard */,
 				91408025206D86010057A7DF /* Info.plist */,
@@ -136,6 +139,7 @@
 			files = (
 				9140801F206D86010057A7DF /* ViewController.swift in Sources */,
 				9140801D206D86010057A7DF /* AppDelegate.swift in Sources */,
+				9140802D206D860E0057A7DF /* Genetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24H8222GR4;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = GeneticAlgorithm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.williamvabrinskas.GeneticAlgorithm;
@@ -283,6 +288,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24H8222GR4;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = GeneticAlgorithm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.williamvabrinskas.GeneticAlgorithm;

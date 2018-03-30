@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeneticAlgorithm/Genetic.swift"
+            timestampString = "544060571.064503"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GeneticAlgorithm.Genetic.(crossover in _4874BD113A828C72E460F78D7172F46D)() -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "GeneticAlgorithm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamvabrinskas/Documents/xcode/GeneticAlgorithm/GeneticAlgorithm/Genetic.swift"
+                  timestampString = "544055181.689661"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.String, Swift.Int), (Swift.String, Swift.Int)) -&gt; Swift.Bool in GeneticAlgorithm.Genetic.(crossover in _4874BD113A828C72E460F78D7172F46D)() -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "GeneticAlgorithm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamvabrinskas/Documents/xcode/GeneticAlgorithm/GeneticAlgorithm/Genetic.swift"
+                  timestampString = "544055181.692125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
