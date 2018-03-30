@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
     
     @IBOutlet weak var generationLabel: NSTextField!
     @IBOutlet weak var rankLabel: NSTextField!
@@ -21,6 +21,11 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mutationFactorField.delegate = self
+        self.populationSizeField.delegate = self
+        
+        self.mutationFactorField.formatter = OnlyIntegerValueFormatter()
+        self.populationSizeField.formatter = OnlyIntegerValueFormatter()
 
         // Do any additional setup after loading the view.
     }
@@ -34,7 +39,7 @@ class ViewController: NSViewController {
     @IBAction func start(_ sender: Any) {
         genetic.n = populationSizeField.intValue == 0 ? 100 : Int(populationSizeField.intValue)
         genetic.mutationFactor = mutationFactorField.intValue == 0 ? 100 : UInt32(mutationFactorField.intValue)
-        genetic.goalWord = goalPhraseField.stringValue
+        genetic.goalWord = goalPhraseField.stringValue.isEmpty ? "test" : goalPhraseField.stringValue
         
         self.rankLabel.stringValue = ""
         self.generationLabel.stringValue = ""
@@ -58,6 +63,5 @@ class ViewController: NSViewController {
         self.resultLabel.stringValue = self.genetic.result ?? ""
         
     }
-    
 }
 

@@ -13,7 +13,7 @@ import Cocoa
 
 class Genetic {
     
-    let allowedChars = "abcdefghijklmnopqrstuvwxyzm "
+    lazy var allowedChars = " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
     var goalWord = "test"
     
     var n = 10
@@ -70,6 +70,7 @@ class Genetic {
                 self.result = element
                 if element == goalWord {
                     self.generationsLabel = "\(generations)"
+                    self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
                     self.result = "Found result: '\(element)'"
                     foundAnswer = true
                     block()
@@ -113,8 +114,8 @@ class Genetic {
         
         if highestRanking < rank {
             highestRanking = rank
-            self.highestLabel = "\(highestRanking)"
-            print("Highest ranking word: '\(word)' with rank: \(highestRanking)")
+            self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
+            print("Highest ranking word: '\(word)' with rank: \(Int(sqrt(highestRanking) * 100.0))")
         }
 
         return rank
