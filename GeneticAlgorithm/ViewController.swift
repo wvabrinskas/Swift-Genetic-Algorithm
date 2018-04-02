@@ -16,8 +16,10 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var mutationFactorField: NSTextField!
     @IBOutlet weak var goalPhraseField: NSTextField!
     @IBOutlet weak var resultLabel: NSTextField!
+    @IBOutlet weak var outputDirectoryField: NSTextField!
     
     let genetic = Genetic()
+    var saveURL: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         genetic.n = populationSizeField.intValue == 0 ? 100 : Int(populationSizeField.intValue)
         genetic.mutationFactor = mutationFactorField.intValue == 0 ? 100 : UInt32(mutationFactorField.intValue)
         genetic.goalWord = goalPhraseField.stringValue.isEmpty ? "test" : goalPhraseField.stringValue
+        genetic.onComplete = {
+            self.writeToFile()
+        }
         
         self.rankLabel.stringValue = ""
         self.generationLabel.stringValue = ""
@@ -62,7 +67,31 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.rankLabel.stringValue = self.genetic.highestLabel ?? ""
         self.generationLabel.stringValue = self.genetic.generationsLabel ?? ""
         self.resultLabel.stringValue = self.genetic.result ?? ""
+    }
+    
+    @IBAction func selectOutput(_ sender: Any) {
+        let panel = NSSavePanel()
+        panel.directoryURL = FileManager.default.homeDirectoryForCurrentUser
+        panel.nameFieldStringValue = "output.csv"
         
+        panel.begin { (result) in
+            if result == .OK, let url = panel.url {
+                self.saveURL = url
+                self.outputDirectoryField.placeholderString = self.saveURL?.absoluteString
+            }
+        }
+        
+    }
+    
+    private func writeToFile() {
+        do {
+            if self.saveURL != nil {
+                print("saving to file")
+                try genetic.outputCSV.write(to: self.saveURL!, atomically: true, encoding: .utf8)
+            }
+        } catch {
+            print(error)
+        }
     }
 }
 
