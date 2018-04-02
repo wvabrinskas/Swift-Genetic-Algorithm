@@ -121,7 +121,6 @@ class Genetic {
             highestRanking = rank
             self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
             outputCSV += "\(generations), \(rank) \n"
-            print("Highest ranking word: '\(word)' with rank: \(Int(sqrt(highestRanking) * 100.0))")
         }
         return rank
     }
