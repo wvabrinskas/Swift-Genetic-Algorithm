@@ -29,6 +29,7 @@ class Genetic {
     var foundAnswer = false
     var outputCSV = ""
     var onComplete:(() -> ())?
+    private let rankingExponent = 2.0
 
     public func getPopulation(size number: Int) -> [String] {
         var population = [String]()
@@ -72,7 +73,7 @@ class Genetic {
                 self.result = element
                 if element == goalWord {
                     self.generationsLabel = "\(generations)"
-                    self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
+                    self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
                     self.result = "Found result: '\(element)'"
                     self.onComplete?()
                     foundAnswer = true
@@ -114,11 +115,11 @@ class Genetic {
         }
         
         rank = rank / Double(goalWord.count)
-        rank = pow(rank, 2)
+        rank = pow(rank, rankingExponent)
         
         if highestRanking < rank {
             highestRanking = rank
-            self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
+            self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
             outputCSV += "\(generations), \(rank) \n"
             print("Highest ranking word: '\(word)' with rank: \(Int(sqrt(highestRanking) * 100.0))")
         }
