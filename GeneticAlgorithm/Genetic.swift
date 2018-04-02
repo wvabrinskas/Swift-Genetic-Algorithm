@@ -27,6 +27,7 @@ class Genetic {
     var generationsLabel: String!
     var result: String!
     var foundAnswer = false
+    var outputCSV = ""
 
     public func getPopulation(size number: Int) -> [String] {
         var population = [String]()
@@ -72,6 +73,7 @@ class Genetic {
                     self.generationsLabel = "\(generations)"
                     self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
                     self.result = "Found result: '\(element)'"
+                    self.writeToFile()
                     foundAnswer = true
                     block()
                     break
@@ -117,7 +119,7 @@ class Genetic {
             self.highestLabel = "\(Int(sqrt(highestRanking) * 100.0))%"
             print("Highest ranking word: '\(word)' with rank: \(Int(sqrt(highestRanking) * 100.0))")
         }
-
+        outputCSV += outputCSV.isEmpty ? "\(rank)" : ",\(rank)"
         return rank
     }
     
@@ -190,6 +192,20 @@ class Genetic {
         matingPool.removeAll()
         for _ in 1...n {
             matingPool.append(getRandomElement())
+        }
+    }
+    
+    private func writeToFile() {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("GeneticAlgorithm")
+        do {
+            if try FileManager.default.contentsOfDirectory(atPath: documentsURL.absoluteString).count > 0 {
+                try FileManager.default.removeItem(atPath: documentsURL.absoluteString)
+            }
+            try FileManager.default.createDirectory(at: documentsURL, withIntermediateDirectories: false, attributes:nil)
+            let fileURL = documentsURL.appendingPathComponent("genetic.csv")
+            try outputCSV.write(to: fileURL, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
         }
     }
     

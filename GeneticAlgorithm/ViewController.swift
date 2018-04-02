@@ -27,6 +27,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.mutationFactorField.formatter = OnlyIntegerValueFormatter()
         self.populationSizeField.formatter = OnlyIntegerValueFormatter()
 
+        self.title = "Swift Genetic Algorithm"
         // Do any additional setup after loading the view.
     }
 
