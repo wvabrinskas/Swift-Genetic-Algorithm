@@ -62,10 +62,7 @@ class Genetic {
     public func start(with population: [String], block: () -> ()) {
         foundAnswer = false
         var newPopulation = population
-        self.generationsLabel = ""
-        self.highestLabel = ""
-        generations = 0
-        highestRanking = 0
+        clear()
         
         while !foundAnswer {
             rankingPool.removeAll()
@@ -91,14 +88,18 @@ class Genetic {
         }
     }
     
-    public func stop() {
-        foundAnswer = true
+    private func clear() {
         self.generationsLabel = ""
         self.highestLabel = ""
-        self.result = "Stopped"
         generations = 0
         highestRanking = 0
         outputCSV = ""
+    }
+    
+    public func stop() {
+        foundAnswer = true
+        self.result = "Stopped"
+        clear()
     }
     
     private func getRank(of word: String) -> Double {

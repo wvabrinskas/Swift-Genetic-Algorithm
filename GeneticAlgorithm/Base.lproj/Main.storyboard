@@ -773,7 +773,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IRk-dw-NYv">
+                            <textField toolTip="Number of times a population was generated." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IRk-dw-NYv">
                                 <rect key="frame" x="18" y="229" width="83" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="uFn-KU-AMA"/>
@@ -798,6 +798,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-qT-zCS">
                                 <rect key="frame" x="18" y="147" width="104" height="17"/>
+                                <string key="toolTip">Random number chosen from 0 to this number resulting in a random mutation in a random character. Higher the number the lower the chance of a mutation. </string>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="c25-YI-soe"/>
                                 </constraints>
@@ -807,7 +808,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Jc-7Q-UqU">
+                            <textField toolTip="The size of the population for each generation." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Jc-7Q-UqU">
                                 <rect key="frame" x="254" y="145" width="104" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Blx-NP-fO8"/>
@@ -818,7 +819,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-nr-mXz">
+                            <textField toolTip="Rank of the closest phrase generated so far." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-nr-mXz">
                                 <rect key="frame" x="331" y="229" width="89" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="D3h-8E-Cx9"/>
@@ -852,7 +853,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NLa-Uc-T2u">
+                            <textField toolTip="The pharse for the algorithm to evolve to find. " horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NLa-Uc-T2u">
                                 <rect key="frame" x="39" y="112" width="83" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="rDn-DW-Wda"/>
@@ -886,7 +887,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xE3-GX-Rs5">
+                            <textField toolTip="Directory for the application to save the highest rank and generation number to a CSV.  " horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xE3-GX-Rs5">
                                 <rect key="frame" x="18" y="77" width="104" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="U6w-Hk-Kvr"/>
