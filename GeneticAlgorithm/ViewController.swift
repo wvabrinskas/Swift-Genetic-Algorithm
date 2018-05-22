@@ -38,6 +38,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         // Update the view, if already loaded.
         }
     }
+    
+    @IBAction func showGraph(_ sender: Any) {
+        let origin = CGPoint(x: self.view.frame.origin.x + (self.view.frame.size.width + 40), y: self.view.frame.origin.y + self.view.frame.size.height)
+        let graphController = GraphWindowController(points: genetic.outputPoints, frame: NSRect(origin: origin, size:CGSize(width: 1000, height: 600)))
+        graphController.showWindow(self)
+    }
 
     @IBAction func start(_ sender: Any) {
         genetic.n = populationSizeField.intValue == 0 ? 100 : Int(populationSizeField.intValue)

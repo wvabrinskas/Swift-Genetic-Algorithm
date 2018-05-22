@@ -28,6 +28,7 @@ class Genetic {
     var result: String!
     var foundAnswer = false
     var outputCSV = ""
+    var outputPoints = [CGPoint]()
     var onComplete:(() -> ())?
     private let rankingExponent = 2.0
 
@@ -94,6 +95,7 @@ class Genetic {
         generations = 0
         highestRanking = 0
         outputCSV = ""
+        outputPoints.removeAll()
     }
     
     public func stop() {
@@ -117,12 +119,14 @@ class Genetic {
         
         rank = rank / Double(goalWord.count)
         rank = pow(rank, rankingExponent)
-        
         if highestRanking < rank {
             highestRanking = rank
+            print(highestRanking)
             self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
             outputCSV += "\(generations), \(rank) \n"
+            outputPoints.append(CGPoint(x: Double(generations), y: pow(highestRanking, (1 / rankingExponent)) * 100.0))
         }
+
         return rank
     }
     

@@ -899,9 +899,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SL6-vc-xiB">
-                                <rect key="frame" x="124" y="74" width="306" height="22"/>
+                                <rect key="frame" x="124" y="74" width="273" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="306" id="OBs-vU-4NZ"/>
+                                    <constraint firstAttribute="width" constant="273" id="OBs-vU-4NZ"/>
                                     <constraint firstAttribute="height" constant="22" id="qZr-Dh-k6Z"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="28J-u4-oOr">
@@ -911,7 +911,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-6o-74S">
-                                <rect key="frame" x="438" y="74" width="22" height="22"/>
+                                <rect key="frame" x="405" y="74" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="eTC-ex-Ywj"/>
                                     <constraint firstAttribute="height" constant="20" id="hx4-6Z-SLO"/>
@@ -922,6 +922,20 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="selectOutput:" target="XfG-lQ-9wD" id="4X2-N1-fiF"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Ej-sb-hGX">
+                                <rect key="frame" x="438" y="74" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="bHy-xi-xxY"/>
+                                    <constraint firstAttribute="width" constant="22" id="sIx-n3-AdA"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSShareTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GKc-Hn-mJ0">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showGraph:" target="XfG-lQ-9wD" id="zVk-Ph-gAt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -935,6 +949,7 @@
                             <constraint firstItem="q1c-r5-HNg" firstAttribute="leading" secondItem="NLa-Uc-T2u" secondAttribute="trailing" constant="4" id="E6g-hA-9KT"/>
                             <constraint firstItem="1Dt-Io-Nuy" firstAttribute="top" secondItem="mFg-rn-7x5" secondAttribute="bottom" constant="18" id="EbV-qQ-mpd"/>
                             <constraint firstItem="0ga-jk-6Ly" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="2" id="EuH-Hs-8mC"/>
+                            <constraint firstItem="6Ej-sb-hGX" firstAttribute="leading" secondItem="XcD-6o-74S" secondAttribute="trailing" constant="11" id="FOP-F7-dqU"/>
                             <constraint firstItem="SL6-vc-xiB" firstAttribute="top" secondItem="q1c-r5-HNg" secondAttribute="bottom" constant="12" id="FQ4-CQ-k3N"/>
                             <constraint firstItem="Bnj-WR-LMr" firstAttribute="top" secondItem="ufE-qT-zCS" secondAttribute="top" id="Jt6-We-pXx"/>
                             <constraint firstItem="q1c-r5-HNg" firstAttribute="top" secondItem="NLa-Uc-T2u" secondAttribute="top" constant="-1" id="Oyn-79-BJC"/>
@@ -962,6 +977,7 @@
                             <constraint firstItem="1Dt-Io-Nuy" firstAttribute="top" secondItem="XSc-nr-mXz" secondAttribute="bottom" constant="18" id="uGB-vh-mDU"/>
                             <constraint firstItem="XcD-6o-74S" firstAttribute="top" secondItem="q1c-r5-HNg" secondAttribute="bottom" constant="13" id="x70-4m-Lza"/>
                             <constraint firstItem="XcD-6o-74S" firstAttribute="leading" secondItem="SL6-vc-xiB" secondAttribute="trailing" constant="8" id="xWA-1X-fnt"/>
+                            <constraint firstItem="6Ej-sb-hGX" firstAttribute="top" secondItem="q1c-r5-HNg" secondAttribute="bottom" constant="13" id="yh1-Eq-TTp"/>
                             <constraint firstItem="NLa-Uc-T2u" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="41" id="zw1-xl-DMJ"/>
                         </constraints>
                     </view>
@@ -982,5 +998,6 @@
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSShareTemplate" width="11" height="16"/>
     </resources>
 </document>

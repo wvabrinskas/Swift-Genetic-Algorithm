@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		502D057E206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */; };
+		50F0630320B46394003C4FDE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0630220B46394003C4FDE /* Graph.swift */; };
+		50F0630620B4643F003C4FDE /* GraphWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F0630520B4643F003C4FDE /* GraphWindowController.xib */; };
+		50F0630820B464F6003C4FDE /* GraphWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0630720B464F6003C4FDE /* GraphWindowController.swift */; };
 		9140801D206D86010057A7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140801C206D86010057A7DF /* AppDelegate.swift */; };
 		9140801F206D86010057A7DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140801E206D86010057A7DF /* ViewController.swift */; };
 		91408021206D86010057A7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91408020206D86010057A7DF /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
+		50F0630220B46394003C4FDE /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		50F0630520B4643F003C4FDE /* GraphWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphWindowController.xib; sourceTree = "<group>"; };
+		50F0630720B464F6003C4FDE /* GraphWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphWindowController.swift; sourceTree = "<group>"; };
 		91408019206D86010057A7DF /* GeneticAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneticAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9140801C206D86010057A7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9140801E206D86010057A7DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +44,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50F0630420B4642C003C4FDE /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				50F0630520B4643F003C4FDE /* GraphWindowController.xib */,
+				50F0630720B464F6003C4FDE /* GraphWindowController.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
 		91408010206D86010057A7DF = {
 			isa = PBXGroup;
 			children = (
@@ -57,10 +72,12 @@
 		9140801B206D86010057A7DF /* GeneticAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				50F0630420B4642C003C4FDE /* Windows */,
 				9140801C206D86010057A7DF /* AppDelegate.swift */,
 				9140801E206D86010057A7DF /* ViewController.swift */,
 				9140802C206D860E0057A7DF /* Genetic.swift */,
 				502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */,
+				50F0630220B46394003C4FDE /* Graph.swift */,
 				91408020206D86010057A7DF /* Assets.xcassets */,
 				91408022206D86010057A7DF /* Main.storyboard */,
 				91408025206D86010057A7DF /* Info.plist */,
@@ -129,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91408021206D86010057A7DF /* Assets.xcassets in Resources */,
+				50F0630620B4643F003C4FDE /* GraphWindowController.xib in Resources */,
 				91408024206D86010057A7DF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,10 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F0630820B464F6003C4FDE /* GraphWindowController.swift in Sources */,
 				9140801F206D86010057A7DF /* ViewController.swift in Sources */,
 				9140801D206D86010057A7DF /* AppDelegate.swift in Sources */,
 				9140802D206D860E0057A7DF /* Genetic.swift in Sources */,
 				502D057E206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift in Sources */,
+				50F0630320B46394003C4FDE /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
