@@ -8,17 +8,28 @@
 
 import Foundation
 import Cocoa
-
+import QuartzCore
 
 class GraphWindowController: NSWindowController {
     var graph: Graph!
+    @IBOutlet weak var yAxisLabel: NSTextField! {
+        didSet {
+            yAxisLabel.frameCenterRotation = 90.0
+        }
+    }
     
-    convenience init(points: [CGPoint], frame: NSRect) {
+    @IBOutlet weak var xAxisLabel: NSTextField!
+    @IBOutlet weak var titleLabel: NSTextField!
+    
+    convenience init(points: [CGPoint], frame: NSRect, title: String, xAxisTitle: String, yAxisTitle: String) {
         self.init(windowNibName: NSNib.Name.init("GraphWindowController"))
         graph = Graph(points: points, size: frame.size)
         self.window?.setFrame(frame, display: true)
         self.window?.contentView?.wantsLayer = true
         self.window?.styleMask.remove( [ .resizable ] )
+        self.yAxisLabel.stringValue = yAxisTitle
+        self.xAxisLabel.stringValue = xAxisTitle
+        self.titleLabel.stringValue = title
     }
     
     override func windowDidLoad() {
@@ -27,9 +38,12 @@ class GraphWindowController: NSWindowController {
     }
     
     private func loadGraph() {
-        graph.generateLayer { (layer) in
+        graph.generateLayer { (layer, xAxisLabels) in
             DispatchQueue.main.async {
                 self.window?.contentView?.layer?.addSublayer(layer)
+                xAxisLabels.forEach({ (xAxisLabel) in
+                    self.window?.contentView?.addSubview(xAxisLabel)
+                })
             }
         }
     }

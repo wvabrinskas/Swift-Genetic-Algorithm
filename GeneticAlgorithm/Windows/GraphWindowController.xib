@@ -7,7 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GraphWindowController" customModule="GeneticAlgorithm" customModuleProvider="target">
             <connections>
+                <outlet property="titleLabel" destination="wdc-M6-WX0" id="diT-e4-8nr"/>
                 <outlet property="window" destination="VbN-aX-fe2" id="aMz-Rv-Y6W"/>
+                <outlet property="xAxisLabel" destination="rGB-bp-vs0" id="0bZ-IJ-dnt"/>
+                <outlet property="yAxisLabel" destination="q7B-gC-paK" id="iv2-Oh-sfJ"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -15,11 +18,57 @@
         <window title="Graph" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="VbN-aX-fe2">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="480" height="270"/>
+            <rect key="contentRect" x="283" y="305" width="1000" height="800"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="O5A-Cc-kmE">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wdc-M6-WX0">
+                        <rect key="frame" x="6" y="761" width="984" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="58v-W3-BOs"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Graph Title" id="SNj-6x-Awu">
+                            <font key="font" metaFont="systemBold" size="23"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rGB-bp-vs0">
+                        <rect key="frame" x="8" y="7" width="982" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="qjY-Xw-ai6"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="x axis label" id="eBf-nm-oD2">
+                            <font key="font" metaFont="systemBold" size="17"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q7B-gC-paK">
+                        <rect key="frame" x="38" y="341" width="117" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="3Nq-Ic-B9q"/>
+                            <constraint firstAttribute="width" constant="113" id="glJ-bV-aGT"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="y axis label" id="Whc-xB-Xw2">
+                            <font key="font" metaFont="systemBold" size="17"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wdc-M6-WX0" firstAttribute="leading" secondItem="O5A-Cc-kmE" secondAttribute="leading" constant="8" id="47t-3o-prR"/>
+                    <constraint firstAttribute="bottom" secondItem="rGB-bp-vs0" secondAttribute="bottom" constant="7" id="DuM-1b-pvU"/>
+                    <constraint firstAttribute="trailing" secondItem="wdc-M6-WX0" secondAttribute="trailing" constant="12" id="EF1-6m-lQH"/>
+                    <constraint firstItem="q7B-gC-paK" firstAttribute="centerY" secondItem="O5A-Cc-kmE" secondAttribute="centerY" constant="44.5" id="Wxv-mh-lrr"/>
+                    <constraint firstItem="q7B-gC-paK" firstAttribute="leading" secondItem="O5A-Cc-kmE" secondAttribute="leading" constant="40" id="jgJ-v2-wVe"/>
+                    <constraint firstAttribute="trailing" secondItem="rGB-bp-vs0" secondAttribute="trailing" constant="12" id="qep-0k-4ik"/>
+                    <constraint firstItem="rGB-bp-vs0" firstAttribute="leading" secondItem="O5A-Cc-kmE" secondAttribute="leading" constant="10" id="xIE-Cd-8sM"/>
+                    <constraint firstItem="wdc-M6-WX0" firstAttribute="top" secondItem="O5A-Cc-kmE" secondAttribute="top" constant="6" id="zd9-a3-VFU"/>
+                </constraints>
             </view>
         </window>
     </objects>

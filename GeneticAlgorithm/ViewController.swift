@@ -41,7 +41,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     @IBAction func showGraph(_ sender: Any) {
         let origin = CGPoint(x: self.view.frame.origin.x + (self.view.frame.size.width + 40), y: self.view.frame.origin.y + self.view.frame.size.height)
-        let graphController = GraphWindowController(points: genetic.outputPoints, frame: NSRect(origin: origin, size:CGSize(width: 1000, height: 600)))
+        
+        let title = (self.goalPhraseField.stringValue == "" ? self.goalPhraseField.placeholderString ?? "test" : self.goalPhraseField.stringValue) + " - " + generationLabel.stringValue
+        let frame = NSRect(origin: origin, size:CGSize(width: 1000, height: 600))
+        
+        let graphController = GraphWindowController(points: genetic.outputPoints, frame: frame, title: title, xAxisTitle: "Generations", yAxisTitle: "% Match")
         graphController.showWindow(self)
     }
 
