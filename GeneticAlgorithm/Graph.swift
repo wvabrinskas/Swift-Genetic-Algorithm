@@ -20,6 +20,17 @@ class Graph {
         self.size = size
     }
     
+    private func scoreLine(from: CGPoint, to: CGPoint) -> CAShapeLayer {
+        let scoreLine = CGMutablePath()
+        scoreLine.move(to: from)
+        scoreLine.addLine(to: to)
+        let scoreLayer = CAShapeLayer()
+        scoreLayer.strokeColor = NSColor.lightGray.cgColor
+        scoreLayer.lineWidth = 1.0
+        scoreLayer.path = scoreLine
+        return scoreLayer
+    }
+    
     public func generateLayer(complete: @escaping ( _ layer: CALayer,_ xAxisLabels:[NSTextField] ,_ yAxisLabels:[NSTextField]) -> ()) {
         let graphLayer = CALayer()
         graphLayer.backgroundColor = NSColor.clear.cgColor
@@ -54,53 +65,27 @@ class Graph {
         for x in stride(from: minX, through: maxX, by: self.scale) {
             let currentX = (lastXPoint / maxWidth) * (x - minX)
             
-            let graphlabel = NSTextField(frame: CGRect(x: x - 10, y: minY - 25, width: 50, height: 20))
-            graphlabel.isEditable = false
-            graphlabel.alignment = .center
-            graphlabel.textColor = .black
-            graphlabel.backgroundColor = .clear
-            graphlabel.isBordered = false
-            graphlabel.font = NSFont.systemFont(ofSize: 12)
+            let graphlabel = GraphLabel(frame: CGRect(x: x - 10, y: minY - 25, width: 50, height: 20))
             graphlabel.stringValue = "\(Int(currentX))"
             graphlabel.sizeToFit()
             
             currentXAxisLabels.append(graphlabel)
             
             //scores
-            let scoreLine = CGMutablePath()
-            scoreLine.move(to: CGPoint(x: x, y: minY))
-            scoreLine.addLine(to: CGPoint(x: x, y: maxY))
-            let scoreLayer = CAShapeLayer()
-            scoreLayer.strokeColor = NSColor.lightGray.cgColor
-            scoreLayer.lineWidth = 1.0
-            scoreLayer.path = scoreLine
-            scoreLayer.lineCap = kCALineCapRound
+            let scoreLayer = self.scoreLine(from: CGPoint(x: x, y: minY), to: CGPoint(x: x, y: maxY))
             graphLayer.addSublayer(scoreLayer)
         }
         
         for y in stride(from: minY, through: maxY, by: self.scale) {
             let currentY = (110 / maxHeight) * (y - minY)
             
-            let graphlabel = NSTextField(frame: CGRect(x: minX - 30.0, y: y - 5, width: 50, height: 20))
-            graphlabel.isEditable = false
-            graphlabel.alignment = .center
-            graphlabel.textColor = .black
-            graphlabel.backgroundColor = .clear
-            graphlabel.isBordered = false
-            graphlabel.font = NSFont.systemFont(ofSize: 12)
+            let graphlabel = GraphLabel(frame: CGRect(x: minX - 30.0, y: y - 5, width: 50, height: 20))
             graphlabel.stringValue = "\(Int(currentY))"
             graphlabel.sizeToFit()
             
             currentYAxisLabels.append(graphlabel)
             
-            let scoreYLine = CGMutablePath()
-            scoreYLine.move(to: CGPoint(x: minX, y: y))
-            scoreYLine.addLine(to: CGPoint(x: maxX, y: y))
-            let scoreYLayer = CAShapeLayer()
-            scoreYLayer.strokeColor = NSColor.lightGray.cgColor
-            scoreYLayer.lineWidth = 1.0
-            scoreYLayer.path = scoreYLine
-            scoreYLayer.lineCap = kCALineCapRound
+            let scoreYLayer = self.scoreLine(from: CGPoint(x: minX, y: y), to: CGPoint(x: maxX, y: y))
             graphLayer.addSublayer(scoreYLayer)
             
         }

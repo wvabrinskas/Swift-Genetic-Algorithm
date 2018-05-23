@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		502D057E206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */; };
+		5070C28020B5B7EA00FA7E01 /* GraphLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070C27F20B5B7EA00FA7E01 /* GraphLabel.swift */; };
 		50F0630320B46394003C4FDE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0630220B46394003C4FDE /* Graph.swift */; };
 		50F0630620B4643F003C4FDE /* GraphWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F0630520B4643F003C4FDE /* GraphWindowController.xib */; };
 		50F0630820B464F6003C4FDE /* GraphWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0630720B464F6003C4FDE /* GraphWindowController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIntegerValueFormatter.swift; sourceTree = "<group>"; };
+		5070C27F20B5B7EA00FA7E01 /* GraphLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphLabel.swift; sourceTree = "<group>"; };
 		50F0630220B46394003C4FDE /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		50F0630520B4643F003C4FDE /* GraphWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphWindowController.xib; sourceTree = "<group>"; };
 		50F0630720B464F6003C4FDE /* GraphWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphWindowController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				9140802C206D860E0057A7DF /* Genetic.swift */,
 				502D057D206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift */,
 				50F0630220B46394003C4FDE /* Graph.swift */,
+				5070C27F20B5B7EA00FA7E01 /* GraphLabel.swift */,
 				91408020206D86010057A7DF /* Assets.xcassets */,
 				91408022206D86010057A7DF /* Main.storyboard */,
 				91408025206D86010057A7DF /* Info.plist */,
@@ -160,6 +163,7 @@
 			files = (
 				50F0630820B464F6003C4FDE /* GraphWindowController.swift in Sources */,
 				9140801F206D86010057A7DF /* ViewController.swift in Sources */,
+				5070C28020B5B7EA00FA7E01 /* GraphLabel.swift in Sources */,
 				9140801D206D86010057A7DF /* AppDelegate.swift in Sources */,
 				9140802D206D860E0057A7DF /* Genetic.swift in Sources */,
 				502D057E206EC06D000ABFF6 /* OnlyIntegerValueFormatter.swift in Sources */,
