@@ -82,7 +82,9 @@ class Genetic {
                 let rankedItem = (element, getRank(of: element))
                 rankingPool.append(rankedItem)
             }
-            buildMatingPool()
+            DispatchQueue.global().sync {
+                self.buildMatingPool()
+            }
             newPopulation = crossover()
             self.generationsLabel = "\(generations)"
             generations += 1

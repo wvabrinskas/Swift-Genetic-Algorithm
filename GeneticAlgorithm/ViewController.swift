@@ -63,7 +63,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         OperationQueue().addOperation {
             self.genetic.start(with: self.genetic.getPopulation(size: self.genetic.n), block: {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.rankLabel.stringValue = self.genetic.highestLabel ?? ""
                     self.generationLabel.stringValue = self.genetic.generationsLabel ?? ""
                     self.resultLabel.stringValue = self.genetic.result ?? ""

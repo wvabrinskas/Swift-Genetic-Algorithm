@@ -129,9 +129,9 @@ class Graph {
             
             graphLayer.addSublayer(axisLineLayer)
             graphLayer.addSublayer(lineLayer)
-            
-            window.pointee.contentView?.layer?.addSublayer(graphLayer)
+
         }
+        window.pointee.contentView?.layer?.addSublayer(graphLayer)
     }
 
 }
