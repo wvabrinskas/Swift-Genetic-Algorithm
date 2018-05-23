@@ -14,6 +14,7 @@ class Graph {
     private var size: CGSize!
     
     var scale:CGFloat = 100.0
+    var pointSize = CGSize(width: 5.0, height: 5.0)
     
     init(points: [CGPoint], size: CGSize) {
         self.points = points
@@ -29,6 +30,13 @@ class Graph {
         scoreLayer.lineWidth = 1.0
         scoreLayer.path = scoreLine
         return scoreLayer
+    }
+    
+    private func pointLabel(currentPoint: CGPoint, value: CGPoint) -> GraphLabel {
+        let graphlabel = GraphLabel(frame: CGRect(x: currentPoint.x - 10, y: currentPoint.y - 10, width: 50, height: 20))
+        graphlabel.stringValue = "(\(Int(value.x)), \(Int(value.y)))"
+        graphlabel.sizeToFit()
+        return graphlabel
     }
     
     public func generate(window: UnsafeMutablePointer<NSWindow>) {
@@ -87,50 +95,52 @@ class Graph {
             
         }
         
-        DispatchQueue.global().async {
-            for point in sorted {
-                
-                let currentX = ((point.x * maxWidth) / lastXPoint) + (xOffset / 2)
-                let currentY = (point.y * ySpacing) + (yOffset / 2)
-                
-                let oval = CGPath(ellipseIn: CGRect(x:currentX, y: currentY, width: 5.05, height: 5.0), transform: nil)
-                let shapeLayer = CAShapeLayer()
-                
-                shapeLayer.fillColor = NSColor.red.cgColor
-                shapeLayer.strokeColor = NSColor.clear.cgColor
-                shapeLayer.path = oval
+        for point in sorted {
+            
+            let currentX = (((point.x * maxWidth) / lastXPoint) + (xOffset / 2)) - (pointSize.width / 2)
+            let currentY = ((point.y * ySpacing) + (yOffset / 2)) - (pointSize.height / 2)
+            
+            let oval = CGPath(ellipseIn: CGRect(x:currentX, y: currentY, width: pointSize.width, height: pointSize.height), transform: nil)
+            let shapeLayer = CAShapeLayer()
+            
+            shapeLayer.fillColor = NSColor.red.cgColor
+            shapeLayer.strokeColor = NSColor.clear.cgColor
+            shapeLayer.path = oval
 
-                graphLayer.addSublayer(shapeLayer)
-                
-                if previousPoint != nil {
-                    line.move(to:  CGPoint(x: previousPoint!.x + 2.5, y: previousPoint!.y + 2.5))
-                    line.addLine(to: CGPoint(x: currentX + 2.5, y: currentY + 2.5))
-                }
-                
-                previousPoint = CGPoint(x: currentX, y: currentY)
-                x += 1
+            graphLayer.addSublayer(shapeLayer)
+            
+            if previousPoint != nil {
+                line.move(to:  CGPoint(x: previousPoint!.x + 2.5, y: previousPoint!.y + 2.5))
+                line.addLine(to: CGPoint(x: currentX + 2.5, y: currentY + 2.5))
             }
             
-            lineLayer.strokeColor = NSColor.red.cgColor
-            lineLayer.lineWidth = 2.0
-            lineLayer.path = line
-            lineLayer.lineCap = kCALineCapRound
-
-            let axis = CGMutablePath()
-            axis.move(to: CGPoint(x: minX, y: minY))
-            axis.addLine(to: CGPoint(x: maxX, y: minY))
-            axis.move(to: CGPoint(x: minX, y: minY))
-            axis.addLine(to: CGPoint(x: minX, y: maxY))
+            let pointLabel = self.pointLabel(currentPoint: CGPoint(x: currentX, y: currentY), value: point)
+            window.pointee.contentView?.addSubview(pointLabel)
+        
             
-            axisLineLayer.strokeColor = NSColor.lightGray.cgColor
-            axisLineLayer.lineWidth = 2.5
-            axisLineLayer.path = axis
-            axisLineLayer.lineCap = kCALineCapRound
-            
-            graphLayer.addSublayer(axisLineLayer)
-            graphLayer.addSublayer(lineLayer)
-
+            previousPoint = CGPoint(x: currentX, y: currentY)
+            x += 1
         }
+        
+        lineLayer.strokeColor = NSColor.red.cgColor
+        lineLayer.lineWidth = 2.0
+        lineLayer.path = line
+        lineLayer.lineCap = kCALineCapRound
+
+        let axis = CGMutablePath()
+        axis.move(to: CGPoint(x: minX, y: minY))
+        axis.addLine(to: CGPoint(x: maxX, y: minY))
+        axis.move(to: CGPoint(x: minX, y: minY))
+        axis.addLine(to: CGPoint(x: minX, y: maxY))
+        
+        axisLineLayer.strokeColor = NSColor.lightGray.cgColor
+        axisLineLayer.lineWidth = 2.5
+        axisLineLayer.path = axis
+        
+        graphLayer.addSublayer(axisLineLayer)
+        graphLayer.addSublayer(lineLayer)
+
+        
         window.pointee.contentView?.layer?.addSublayer(graphLayer)
     }
 

@@ -60,35 +60,35 @@ class Genetic {
         return randomString
     }
     
-    public func start(with population: [String], block: () -> ()) {
-        foundAnswer = false
-        var newPopulation = population
-        clear()
-        
-        while !foundAnswer {
-            rankingPool.removeAll()
-            for element in newPopulation {
-                self.result = element
-                if element == goalWord {
-                    self.generationsLabel = "\(generations)"
-                    self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
-                    self.result = "Found result: '\(element)'"
-                    outputPoints.append(CGPoint(x: Double(generations), y:100.0))
-                    self.onComplete?()
-                    foundAnswer = true
-                    block()
-                    break
+    public func start(with population: [String], block: (() -> ())?) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.foundAnswer = false
+            var newPopulation = population
+            self.clear()
+            
+            while !self.foundAnswer {
+                self.rankingPool.removeAll()
+                for element in newPopulation {
+                    self.result = element
+                    if element == self.goalWord {
+                        self.generationsLabel = "\(self.generations)"
+                        self.highestLabel = "\(Int(pow(self.highestRanking, (1 / self.rankingExponent)) * 100.0))%"
+                        self.result = "Found result: '\(element)'"
+                        self.outputPoints.append(CGPoint(x: Double(self.generations), y:100.0))
+                        self.onComplete?()
+                        self.foundAnswer = true
+                        block?()
+                        break
+                    }
+                    let rankedItem = (element, self.getRank(of: element))
+                    self.rankingPool.append(rankedItem)
                 }
-                let rankedItem = (element, getRank(of: element))
-                rankingPool.append(rankedItem)
-            }
-            DispatchQueue.global().sync {
                 self.buildMatingPool()
+                newPopulation = self.crossover()
+                self.generationsLabel = "\(self.generations)"
+                self.generations += 1
+                block?()
             }
-            newPopulation = crossover()
-            self.generationsLabel = "\(generations)"
-            generations += 1
-            block()
         }
     }
     
