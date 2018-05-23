@@ -73,6 +73,7 @@ class Genetic {
                     self.generationsLabel = "\(generations)"
                     self.highestLabel = "\(Int(pow(highestRanking, (1 / rankingExponent)) * 100.0))%"
                     self.result = "Found result: '\(element)'"
+                    outputPoints.append(CGPoint(x: Double(generations), y:100.0))
                     self.onComplete?()
                     foundAnswer = true
                     block()

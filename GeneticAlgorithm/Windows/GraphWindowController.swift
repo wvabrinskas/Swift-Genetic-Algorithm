@@ -38,11 +38,16 @@ class GraphWindowController: NSWindowController {
     }
     
     private func loadGraph() {
-        graph.generateLayer { (layer, xAxisLabels) in
+        graph.scale = 50
+        graph.generateLayer { (layer, xAxisLabels, yAxisLabels) in
             DispatchQueue.main.async {
                 self.window?.contentView?.layer?.addSublayer(layer)
                 xAxisLabels.forEach({ (xAxisLabel) in
                     self.window?.contentView?.addSubview(xAxisLabel)
+                })
+                
+                yAxisLabels.forEach({ (yAxisLabel) in
+                    self.window?.contentView?.addSubview(yAxisLabel)
                 })
             }
         }

@@ -13,12 +13,14 @@ class Graph {
     private var points = [CGPoint]()
     private var size: CGSize!
     
+    var scale:CGFloat = 100.0
+    
     init(points: [CGPoint], size: CGSize) {
         self.points = points
         self.size = size
     }
     
-    public func generateLayer(complete: @escaping ( _ layer: CALayer,_ xAxisLabels:[NSTextField]) -> ()) {
+    public func generateLayer(complete: @escaping ( _ layer: CALayer,_ xAxisLabels:[NSTextField] ,_ yAxisLabels:[NSTextField]) -> ()) {
         let graphLayer = CALayer()
         graphLayer.backgroundColor = NSColor.clear.cgColor
         graphLayer.frame = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
@@ -37,7 +39,8 @@ class Graph {
         let ySpacing = maxHeight / 110
         
         var currentXAxisLabels = [NSTextField]()
-        
+        var currentYAxisLabels = [NSTextField]()
+
         var previousPoint: CGPoint?
         
         var x = 0
@@ -47,6 +50,60 @@ class Graph {
 
         let sorted = self.points.sorted(by: { $0.y < $1.y })
         let lastXPoint = sorted.last!.x
+        
+        for x in stride(from: minX, through: maxX, by: self.scale) {
+            let currentX = (lastXPoint / maxWidth) * (x - minX)
+            
+            let graphlabel = NSTextField(frame: CGRect(x: x - 10, y: minY - 25, width: 50, height: 20))
+            graphlabel.isEditable = false
+            graphlabel.alignment = .center
+            graphlabel.textColor = .black
+            graphlabel.backgroundColor = .clear
+            graphlabel.isBordered = false
+            graphlabel.font = NSFont.systemFont(ofSize: 12)
+            graphlabel.stringValue = "\(Int(currentX))"
+            graphlabel.sizeToFit()
+            
+            currentXAxisLabels.append(graphlabel)
+            
+            //scores
+            let scoreLine = CGMutablePath()
+            scoreLine.move(to: CGPoint(x: x, y: minY))
+            scoreLine.addLine(to: CGPoint(x: x, y: maxY))
+            let scoreLayer = CAShapeLayer()
+            scoreLayer.strokeColor = NSColor.lightGray.cgColor
+            scoreLayer.lineWidth = 1.0
+            scoreLayer.path = scoreLine
+            scoreLayer.lineCap = kCALineCapRound
+            graphLayer.addSublayer(scoreLayer)
+        }
+        
+        for y in stride(from: minY, through: maxY, by: self.scale) {
+            let currentY = (110 / maxHeight) * (y - minY)
+            
+            let graphlabel = NSTextField(frame: CGRect(x: minX - 30.0, y: y - 5, width: 50, height: 20))
+            graphlabel.isEditable = false
+            graphlabel.alignment = .center
+            graphlabel.textColor = .black
+            graphlabel.backgroundColor = .clear
+            graphlabel.isBordered = false
+            graphlabel.font = NSFont.systemFont(ofSize: 12)
+            graphlabel.stringValue = "\(Int(currentY))"
+            graphlabel.sizeToFit()
+            
+            currentYAxisLabels.append(graphlabel)
+            
+            let scoreYLine = CGMutablePath()
+            scoreYLine.move(to: CGPoint(x: minX, y: y))
+            scoreYLine.addLine(to: CGPoint(x: maxX, y: y))
+            let scoreYLayer = CAShapeLayer()
+            scoreYLayer.strokeColor = NSColor.lightGray.cgColor
+            scoreYLayer.lineWidth = 1.0
+            scoreYLayer.path = scoreYLine
+            scoreYLayer.lineCap = kCALineCapRound
+            graphLayer.addSublayer(scoreYLayer)
+            
+        }
         
         DispatchQueue.global().async {
             for point in sorted {
@@ -91,22 +148,7 @@ class Graph {
             graphLayer.addSublayer(axisLineLayer)
             graphLayer.addSublayer(lineLayer)
             
-            for x in stride(from: minX, through: maxX, by: 100) {
-                
-                let graphlabel = NSTextField(frame: CGRect(x: x - 25, y: minY - 25, width: 50, height: 20))
-                graphlabel.isEditable = false
-                graphlabel.alignment = .center
-                graphlabel.textColor = .black
-                graphlabel.backgroundColor = .clear
-                graphlabel.isBordered = false
-                graphlabel.font = NSFont.systemFont(ofSize: 12)
-                graphlabel.stringValue = "\(x - 100)"
-                graphlabel.sizeToFit()
-                
-                currentXAxisLabels.append(graphlabel)
-            }
-            
-            complete(graphLayer, currentXAxisLabels)
+            complete(graphLayer, currentXAxisLabels, currentYAxisLabels)
         }
     }
 
