@@ -31,7 +31,7 @@ class Graph {
         return scoreLayer
     }
     
-    public func generateLayer(complete: @escaping ( _ layer: CALayer,_ xAxisLabels:[NSTextField] ,_ yAxisLabels:[NSTextField]) -> ()) {
+    public func generate(window: UnsafeMutablePointer<NSWindow>) {
         let graphLayer = CALayer()
         graphLayer.backgroundColor = NSColor.clear.cgColor
         graphLayer.frame = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
@@ -48,9 +48,6 @@ class Graph {
         let maxX = maxWidth + (xOffset / 2)
     
         let ySpacing = maxHeight / 110
-        
-        var currentXAxisLabels = [NSTextField]()
-        var currentYAxisLabels = [NSTextField]()
 
         var previousPoint: CGPoint?
         
@@ -69,8 +66,8 @@ class Graph {
             graphlabel.stringValue = "\(Int(currentX))"
             graphlabel.sizeToFit()
             
-            currentXAxisLabels.append(graphlabel)
-            
+            window.pointee.contentView?.addSubview(graphlabel)
+
             //scores
             let scoreLayer = self.scoreLine(from: CGPoint(x: x, y: minY), to: CGPoint(x: x, y: maxY))
             graphLayer.addSublayer(scoreLayer)
@@ -83,8 +80,8 @@ class Graph {
             graphlabel.stringValue = "\(Int(currentY))"
             graphlabel.sizeToFit()
             
-            currentYAxisLabels.append(graphlabel)
-            
+            window.pointee.contentView?.addSubview(graphlabel)
+
             let scoreYLayer = self.scoreLine(from: CGPoint(x: minX, y: y), to: CGPoint(x: maxX, y: y))
             graphLayer.addSublayer(scoreYLayer)
             
@@ -133,7 +130,7 @@ class Graph {
             graphLayer.addSublayer(axisLineLayer)
             graphLayer.addSublayer(lineLayer)
             
-            complete(graphLayer, currentXAxisLabels, currentYAxisLabels)
+            window.pointee.contentView?.layer?.addSublayer(graphLayer)
         }
     }
 
