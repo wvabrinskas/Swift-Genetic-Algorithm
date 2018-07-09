@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/Genetic.swift"
-            timestampString = "548790790.328406"
+            timestampString = "552858986.951165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/ViewController.swift"
-            timestampString = "548790790.328958"
+            timestampString = "548794828.3717721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/ViewController.swift"
-            timestampString = "548790790.329137"
+            timestampString = "548794828.371981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/Genetic.swift"
-            timestampString = "548790790.329186"
+            timestampString = "552858986.952181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/Genetic.swift"
-            timestampString = "548790790.32943"
+            timestampString = "552858986.952425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/Genetic.swift"
-            timestampString = "548790790.329648"
+            timestampString = "552858986.952635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeneticAlgorithm/Graph.swift"
-            timestampString = "548790790.329856"
+            timestampString = "552858986.952836"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
             landmarkName = "generate(window:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeneticAlgorithm/Genetic.swift"
+            timestampString = "552858986.95307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "getRank(of:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

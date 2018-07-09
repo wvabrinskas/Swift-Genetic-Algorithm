@@ -122,6 +122,7 @@ class Genetic {
         
         rank = rank / Double(goalWord.count)
         rank = pow(rank, rankingExponent)
+        
         if highestRanking < rank {
             highestRanking = rank
             print(highestRanking)
