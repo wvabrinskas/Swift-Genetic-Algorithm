@@ -34,7 +34,7 @@ class Graph {
     
     private func pointLabel(currentPoint: CGPoint, value: CGPoint) -> GraphLabel {
         let graphlabel = GraphLabel(frame: CGRect(x: currentPoint.x - 10, y: currentPoint.y - 10, width: 50, height: 20))
-        graphlabel.stringValue = "(\(Int(value.x)), \(Int(value.y)))"
+        graphlabel.stringValue = "(\(Int(value.x)), \(Int(value.y))%)"
         graphlabel.sizeToFit()
         return graphlabel
     }
