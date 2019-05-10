@@ -15,7 +15,7 @@ class GraphLabel: NSTextField {
         super.init(frame: frameRect)
         self.isEditable = false
         self.alignment = .center
-        self.textColor = .black
+        self.textColor = NSColor(named: NSColor.Name("CustomColor"))
         self.backgroundColor = .clear
         self.isBordered = false
         self.font = NSFont.systemFont(ofSize: 12)

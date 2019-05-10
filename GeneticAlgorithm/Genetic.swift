@@ -163,7 +163,7 @@ class Genetic {
             let intOffset = goalWord.count / 2
             
             let indexOne = rightItem.index(rightItem.startIndex, offsetBy: Float(goalWord.count).truncatingRemainder(dividingBy: 2.0) != 0 ? intOffset + 1 : intOffset)
-            let indexTwo = leftItem.index(leftItem.endIndex, offsetBy: -(goalWord.count - indexOne.encodedOffset))
+            let indexTwo = leftItem.index(leftItem.endIndex, offsetBy: -(goalWord.count - indexOne.utf16Offset(in: rightItem)))
             
             let rightPrefix = rightItem.prefix(upTo: indexOne)
             let leftSuffix = leftItem.suffix(from: indexTwo)

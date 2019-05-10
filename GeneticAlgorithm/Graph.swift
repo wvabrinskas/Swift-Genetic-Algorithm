@@ -125,7 +125,7 @@ class Graph {
         lineLayer.strokeColor = NSColor.red.cgColor
         lineLayer.lineWidth = 2.0
         lineLayer.path = line
-        lineLayer.lineCap = kCALineCapRound
+        lineLayer.lineCap = .round
 
         let axis = CGMutablePath()
         axis.move(to: CGPoint(x: minX, y: minY))
